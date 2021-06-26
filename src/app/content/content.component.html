@@ -1,0 +1,46 @@
+<div class="main">
+  <div class="board" *ngIf="!gameIsOn">
+    <div class="hello info">
+      Hello this is quiz app, choose a category and difficality level!
+    </div>
+    <div class="categories for-choose">
+      <ul>
+        <li (click)="chooseCategory(film,0)" #film>Film</li>
+        <li (click)="chooseCategory(books,1)" #books>Books</li>
+        <li (click)="chooseCategory(music,2)" #music>Music</li>
+        <li (click)="chooseCategory(games,3)" #games>Video Games</li>
+        <li (click)="chooseCategory(sports,4)" #sports>Sports</li>
+        <li (click)="chooseCategory(history,5)" #history>History</li>
+      </ul>
+    </div>
+    <div class="difficality for-choose">
+      <ul>
+        <li (click)="chooseDifficality(easy,0)" #easy>Easy</li>
+        <li (click)="chooseDifficality(medium,1)" #medium>Medium</li>
+        <li (click)="chooseDifficality(hard,2)" #hard>Hard</li>
+      </ul>
+    </div>
+    <div class="game info">
+      There are 10 question. you have 30 secends for each, good luck! 
+    </div>
+    <div class="start">
+      <button class="start-button button" (click)="gameStart()">Start</button>
+    </div>
+  </div>
+  <div class="board quiz-game" *ngIf="gameIsOn">
+    <div class="timer">
+      Time Left: 30
+    </div>
+    <ul class="quiz">
+      <li></li>
+      <li (click)="yourAnswer(a,1)" #a></li>
+      <li (click)="yourAnswer(b,2)" #b></li>
+      <li (click)="yourAnswer(c,3)" #c></li>
+      <li (click)="yourAnswer(d,4)" #d></li>
+    </ul>
+    <div class="buttons">
+      <button class="button game-button" (click)="submutAnswer()" [disabled]="answerChoosen">Submit</button>
+      <button class="button game-button" (click)="nextQuestion()" [disabled]="!answerChoosen">Next</button>
+    </div>
+  </div>
+</div>
